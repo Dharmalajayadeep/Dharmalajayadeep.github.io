@@ -74,6 +74,8 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   const querySnapshot = await getDocs(collection(db, "clients"));
+  let projected = totalRevenue * 1.25; // simple 25% growth assumption
+document.getElementById("projectedRevenue").innerText = "₹" + Math.round(projected);
 
   let totalRevenue = 0;
   let activeClients = 0;
@@ -86,6 +88,10 @@ onAuthStateChanged(auth, async (user) => {
   };
 
   let monthlyRevenue = {};
+  
+const currentMonth = new Date().getMonth() + 1;
+document.getElementById("monthlyRevenue").innerText =
+  "₹" + (monthlyRevenue[currentMonth] || 0);
 
   querySnapshot.forEach((doc) => {
     const data = doc.data();
