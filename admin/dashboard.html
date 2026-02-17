@@ -13,26 +13,42 @@
 </div>
 
 <div class="main">
-  <h1>Owner Dashboard</h1>
+  <h1>Owner Command Center</h1>
 
-  <div class="card">
-    <h3>Total Revenue Till Date</h3>
-    <h2 id="totalRevenue">₹0</h2>
+  <div class="kpi-grid">
+
+    <div class="kpi-card">
+      <h3>Total Revenue</h3>
+      <h2 id="totalRevenue">₹0</h2>
+    </div>
+
+    <div class="kpi-card">
+      <h3>Active Clients</h3>
+      <h2 id="activeClients">0</h2>
+    </div>
+
+    <div class="kpi-card">
+      <h3>Projected Revenue</h3>
+      <h2 id="projectedRevenue">₹0</h2>
+    </div>
+
+    <div class="kpi-card">
+      <h3>This Month Revenue</h3>
+      <h2 id="monthlyRevenue">₹0</h2>
+    </div>
+
   </div>
 
-  <div class="card">
-    <h3>Active Clients</h3>
-    <h2 id="activeClients">0</h2>
-  </div>
-
-  <div class="card">
+  <div class="chart-card">
     <canvas id="revenueChart"></canvas>
   </div>
 
-  <div class="card">
+  <div class="chart-card">
     <canvas id="categoryChart"></canvas>
   </div>
+
 </div>
+
 
 
   <div class="card">
