@@ -13,7 +13,8 @@
 </div>
 
 <div class="main">
-  <h1>Owner Command Center</h1>
+
+  <h1>Dashboard</h1>
 
   <div class="kpi-grid">
 
@@ -28,26 +29,29 @@
     </div>
 
     <div class="kpi-card">
-      <h3>Projected Revenue</h3>
-      <h2 id="projectedRevenue">₹0</h2>
-    </div>
-
-    <div class="kpi-card">
       <h3>This Month Revenue</h3>
       <h2 id="monthlyRevenue">₹0</h2>
     </div>
 
+    <div class="kpi-card">
+      <h3>Projected Revenue</h3>
+      <h2 id="projectedRevenue">₹0</h2>
+    </div>
+
   </div>
 
   <div class="chart-card">
+    <h3 style="margin-bottom:20px;">Revenue Overview</h3>
     <canvas id="revenueChart"></canvas>
   </div>
 
   <div class="chart-card">
+    <h3 style="margin-bottom:20px;">Revenue by Category</h3>
     <canvas id="categoryChart"></canvas>
   </div>
 
 </div>
+
 
 
 
@@ -140,9 +144,20 @@ function createRevenueChart(monthlyRevenue){
       datasets: [{
         label: 'Monthly Revenue',
         data: data,
-        borderColor: '#22d3ee',
-        backgroundColor: 'rgba(34,211,238,0.2)',
-        tension: 0.4
+       borderColor: "#635bff",
+backgroundColor: "rgba(99,91,255,0.08)",
+borderWidth: 2,
+tension: 0.4,
+pointRadius: 3,
+        options: {
+  plugins: { legend: { display: false } },
+  scales: {
+    x: { grid: { display: false } },
+    y: {
+      grid: { color: "#f0f2f5" }
+    }
+  }
+}
       }]
     }
   });
