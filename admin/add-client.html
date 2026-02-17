@@ -13,30 +13,64 @@
 </div>
 
 <div class="main">
+
   <h1>Add New Client</h1>
 
-  <div class="card">
+  <div class="form-card">
 
-    <input type="text" id="name" placeholder="Client Name"><br><br>
-    <input type="text" id="phone" placeholder="Phone Number"><br><br>
-    <input type="email" id="email" placeholder="Email"><br><br>
+    <div class="form-grid">
 
-    <select id="category">
-      <option value="">Select Category</option>
-      <option value="visa">Visa</option>
-      <option value="education">Education</option>
-      <option value="placement">Placement</option>
-      <option value="holiday">Holiday</option>
-    </select><br><br>
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" id="name" placeholder="Enter client name">
+      </div>
 
-    <input type="text" id="country" placeholder="Country"><br><br>
-    <input type="number" id="packageCost" placeholder="Total Package Cost"><br><br>
-    <input type="number" id="advance" placeholder="Advance Received"><br><br>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" id="phone" placeholder="Enter phone number">
+      </div>
 
-    <button onclick="addClient()">Save Client</button>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter email">
+      </div>
+
+      <div class="form-group">
+        <label>Category *</label>
+        <select id="category">
+          <option value="">Select Category</option>
+          <option value="visa">Visa</option>
+          <option value="education">Education</option>
+          <option value="placement">Placement</option>
+          <option value="holiday">Holiday</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Country</label>
+        <input type="text" id="country" placeholder="Destination country">
+      </div>
+
+      <div class="form-group">
+        <label>Package Cost</label>
+        <input type="number" id="packageCost" placeholder="Total package cost">
+      </div>
+
+      <div class="form-group">
+        <label>Advance Received</label>
+        <input type="number" id="advance" placeholder="Advance amount">
+      </div>
+
+    </div>
+
+    <button id="saveClientBtn" class="primary-btn">
+      Save Client
+    </button>
 
   </div>
+
 </div>
+
 
 <script type="module">
 import { db } from './js/firebase-config.js';
