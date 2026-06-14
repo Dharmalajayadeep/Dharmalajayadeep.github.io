@@ -1200,6 +1200,61 @@
       });
     }
 
+async function askAI() {
+  const input = document.getElementById("aiInput");
+  const messages = document.getElementById("aiMessages");
+
+  const question = input.value.trim();
+  if (!question) return;
+
+  messages.innerHTML += `
+    <div style="text-align:right;margin:10px;">
+      <b>You:</b> ${question}
+    </div>
+  `;
+
+  input.value = "";
+
+  messages.innerHTML += `
+    <div id="typing">
+      <b>AI:</b> Thinking...
+    </div>
+  `;
+
+  try {
+    const res = await fetch("/.netlify/functions/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: question })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("typing").remove();
+
+    messages.innerHTML += `
+      <div style="margin:10px;">
+        <b>AI:</b> ${data.reply}
+      </div>
+    `;
+
+  } catch (err) {
+    document.getElementById("typing").remove();
+
+    messages.innerHTML += `
+      <div style="color:red;">
+        AI server not working
+      </div>
+    `;
+  }
+
+  messages.scrollTop = messages.scrollHeight;
+}
+
+
+
+
+	  
     function closePackageModal() {
       const modal = document.getElementById('packageModal');
       if (modal) {
