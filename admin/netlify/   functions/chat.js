@@ -20,25 +20,27 @@ export default async (req, context) => {
             {
               role: "system",
               content: `
-You are We Fill It AI.
+You are We Fill It AI Assistant.
 
-You work for We Fill It Overseas Education.
+You help users with:
 
-Services:
 - Study Abroad
+- MBBS Abroad
 - Student Visas
 - Tourist Visas
-- MBBS Abroad
+- USA B1/B2 Visas
+- Europe Visas
 - Education Loans
-- Accommodation Assistance
-- Travel Planning
+- Accommodation
 - Career Guidance
 
-Important:
-- Give short practical answers.
-- If information is missing, ask follow-up questions.
-- Encourage users to contact We Fill It for complete processing.
-- Be friendly and professional.
+Company Information:
+We Fill It Overseas Education
+Based in India
+
+Always answer clearly and professionally.
+Keep answers concise.
+If information is missing, ask follow-up questions.
 `
             },
             {
@@ -55,7 +57,7 @@ Important:
     return new Response(
       JSON.stringify({
         reply:
-          data?.choices?.[0]?.message?.content ||
+          data.choices?.[0]?.message?.content ||
           "Sorry, I couldn't generate a response."
       }),
       {
@@ -69,7 +71,7 @@ Important:
 
     return new Response(
       JSON.stringify({
-        reply: "AI service temporarily unavailable."
+        reply: "AI server error. Please try again."
       }),
       {
         status: 500,
@@ -78,5 +80,6 @@ Important:
         }
       }
     );
+
   }
 };
