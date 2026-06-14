@@ -194,17 +194,41 @@
    <main id="pageContent" class="w-full"><!-- Pages will be dynamically shown here -->
   
    
-   <div id="chatContainer">
-    <div id="messages"></div>
+   <div class="max-w-4xl mx-auto py-20">
+
+  <h1 class="text-5xl font-bold text-center mb-4">
+    We Fill It AI
+  </h1>
+
+  <p class="text-center mb-8">
+    Ask me about visas, study abroad, holiday packages, jobs, and HR services.
+  </p>
+
+  <div
+    id="chatMessages"
+    class="border rounded-xl p-4 h-96 overflow-y-auto mb-4"
+  >
+  </div>
+
+  <div class="flex gap-2">
 
     <input
-        id="userInput"
-        placeholder="Ask anything..."
-    >
+      id="chatInput"
+      type="text"
+      placeholder="Ask anything..."
+      class="flex-1 border p-4 rounded-xl"
+    />
 
-    <button onclick="askAI()">
-        Send
+    <button
+      onclick="askAI()"
+      class="px-6 py-4 rounded-xl"
+    >
+      Send
     </button>
+
+  </div>
+
+</div>
 </div>
    
    </main><!-- Footer -->
@@ -1141,7 +1165,53 @@
         document.body.style.overflow = 'auto';
       }
     }
+const AI_API_URL = "https://wefillit.in/.netlify/functions/chat";
 
+async function askAI() {
+  const input = document.getElementById("aiInput");
+  const messages = document.getElementById("aiMessages");
+
+  const question = input.value.trim();
+
+  if (!question) return;
+
+  messages.innerHTML += `
+    <div style="margin-bottom:10px;">
+      <strong>You:</strong> ${question}
+    </div>
+  `;
+
+  input.value = "";
+
+  try {
+    const response = await fetch(AI_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: question
+      })
+    });
+
+    const data = await response.json();
+
+    messages.innerHTML += `
+      <div style="margin-bottom:15px;">
+        <strong>AI:</strong> ${data.reply}
+      </div>
+    `;
+
+    messages.scrollTop = messages.scrollHeight;
+
+  } catch (error) {
+    messages.innerHTML += `
+      <div>
+        <strong>AI:</strong> Sorry, something went wrong.
+      </div>
+    `;
+  }
+}
     if (window.elementSdk) {
       window.elementSdk.init({
         defaultConfig,
