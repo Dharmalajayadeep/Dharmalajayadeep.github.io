@@ -1,7 +1,6 @@
-export default async (req, context) => {
+exports.handler = async (event, context) => {
   try {
-
-    const body = await req.json();
+    const body = JSON.parse(event.body);
     const userMessage = body.message;
 
     const response = await fetch(
@@ -9,7 +8,7 @@ export default async (req, context) => {
       {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
           "HTTP-Referer": "https://wefillit.in",
           "X-Title": "We Fill It AI"
@@ -19,29 +18,8 @@ export default async (req, context) => {
           messages: [
             {
               role: "system",
-              content: `
-You are We Fill It AI Assistant.
-
-You help users with:
-
-- Study Abroad
-- MBBS Abroad
-- Student Visas
-- Tourist Visas
-- USA B1/B2 Visas
-- Europe Visas
-- Education Loans
-- Accommodation
-- Career Guidance
-
-Company Information:
-We Fill It Overseas Education
-Based in India
-
-Always answer clearly and professionally.
-Keep answers concise.
-If information is missing, ask follow-up questions.
-`
+              content:
+                "You are We Fill It AI Assistant. Help with visas, MBBS abroad, study abroad, tourist visas, travel, jobs and career guidance."
             },
             {
               role: "user",
@@ -54,32 +32,22 @@ If information is missing, ask follow-up questions.
 
     const data = await response.json();
 
-    return new Response(
-      JSON.stringify({
-        reply:
-          data.choices?.[0]?.message?.content ||
-          "Sorry, I couldn't generate a response."
-      }),
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    );
+    return {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        reply: data.choices?.[0]?.message?.content || "No response received."
+      })
+    };
 
   } catch (error) {
-
-    return new Response(
-      JSON.stringify({
-        reply: "AI server error. Please try again."
-      }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    );
-
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        error: error.message
+      })
+    };
   }
 };
