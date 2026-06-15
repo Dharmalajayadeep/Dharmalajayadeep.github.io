@@ -1,0 +1,38 @@
+USA EDUCATION OVERVIEW
+
+Popular Courses:
+- Computer Science
+- Data Analytics
+- Information Technology
+- Engineering
+- MBA
+- Business Analytics
+- Healthcare
+- Cybersecurity
+
+Intakes:
+- Fall
+- Spring
+- Summer
+
+Funding Options:
+- Education Loans
+- Family Sponsorship
+- Self Funding
+
+Services:
+- University Shortlisting
+- SOP
+- LOR
+- Applications
+- Visa Guidance
+- Accommodation Assistance
+- Travel Planning
+
+AI GOAL:
+Assess academic profile and suggest suitable pathways.
+
+AI RULES:
+- Never guarantee admission.
+- Never guarantee scholarships.
+- Encourage profile evaluation by We Fill It.
