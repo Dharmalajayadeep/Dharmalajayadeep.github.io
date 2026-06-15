@@ -1165,168 +1165,37 @@
       });
     }
 
-async function askAI() {
+function closePackageModal() {
+  const modal = document.getElementById('packageModal');
 
-  const input = document.getElementById("aiInput");
-  const messages = document.getElementById("aiMessages");
-
-  if (!input || !messages) return;
-
-  const question = input.value.trim();
-
-  if (!question) return;
-
-  messages.innerHTML += `
-    <div style="
-      margin-bottom:15px;
-      text-align:right;
-    ">
-      <b>You:</b><br>
-      ${question}
-    </div>
-  `;
-
-  input.value = "";
-
-  messages.innerHTML += `
-    <div id="typing">
-      <b>We Fill It AI:</b><br>
-      Thinking...
-    </div>
-  `;
-
-  messages.scrollTop = messages.scrollHeight;
-
-  try {
-
-    const response = await fetch("/.netlify/functions/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        message: question
-      })
-    });
-
-    const data = await response.json();
-
-    const typing = document.getElementById("typing");
-
-    if (typing) {
-      typing.remove();
-    }
-
-    messages.innerHTML += `
-      <div style="
-        margin-bottom:20px;
-        padding:15px;
-        border-radius:12px;
-        background:rgba(255,255,255,0.08);
-        line-height:1.8;
-      ">
-        <b>We Fill It AI:</b><br><br>
-        ${data.reply}
-      </div>
-    `;
-
-  } catch (err) {
-
-    const typing = document.getElementById("typing");
-
-    if (typing) {
-      typing.remove();
-    }
-
-    messages.innerHTML += `
-      <div style="
-        color:red;
-        margin-bottom:15px;
-      ">
-        Failed to contact AI server.
-      </div>
-    `;
-  }
-
-  messages.scrollTop = messages.scrollHeight;
-}
-	  
-    function closePackageModal() {
-      const modal = document.getElementById('packageModal');
-      if (modal) {
-        modal.remove();
-        document.body.style.overflow = 'auto';
-      }
-    }
-
-async function askAI() {
-  const input = document.getElementById("aiInput");
-  const messages = document.getElementById("aiMessages");
-
-  const question = input.value.trim();
-
-  if (!question) return;
-
-  messages.innerHTML += `
-    <div style="margin-bottom:10px;">
-      <strong>You:</strong> ${question}
-    </div>
-  `;
-
-  input.value = "";
-
-  try {
-    const response = await fetch(AI_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        message: question
-      })
-    });
-
-    const data = await response.json();
-
-    messages.innerHTML += `
-      <div style="margin-bottom:15px;">
-        <strong>AI:</strong> ${data.reply}
-      </div>
-    `;
-
-    messages.scrollTop = messages.scrollHeight;
-
-  } catch (error) {
-    messages.innerHTML += `
-      <div>
-        <strong>AI:</strong> Sorry, something went wrong.
-      </div>
-    `;
+  if (modal) {
+    modal.remove();
+    document.body.style.overflow = 'auto';
   }
 }
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities: () => capabilities,
-        mapToEditPanelValues
-      });
-    }
 
-    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
-    });
+if (window.elementSdk) {
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange,
+    mapToCapabilities: () => capabilities,
+    mapToEditPanelValues
+  });
+}
 
-    renderPage(defaultConfig.current_page);
-  </script>
-<script>
+document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('active');
+});
+
+renderPage(defaultConfig.current_page);
 
 function navigateToPage(page) {
   var content = document.getElementById("pageContent");
 
   if (!pages[page]) {
-    content.innerHTML = "<h2 style='padding:40px;text-align:center'>Page not found</h2>";
+    content.innerHTML =
+      "<h2 style='padding:40px;text-align:center'>Page not found</h2>";
     return;
   }
 
@@ -1378,11 +1247,19 @@ async function askAI() {
 
     const data = await response.json();
 
-    document.getElementById("typing").remove();
+    const typing = document.getElementById("typing");
+
+    if (typing) typing.remove();
 
     messages.innerHTML += `
-      <div style="margin-bottom:20px;">
-        <b>We Fill It AI:</b><br>
+      <div style="
+        margin-bottom:20px;
+        padding:15px;
+        border-radius:12px;
+        background:rgba(255,255,255,0.08);
+        line-height:1.8;
+      ">
+        <b>We Fill It AI:</b><br><br>
         ${data.reply}
       </div>
     `;
@@ -1406,6 +1283,8 @@ async function askAI() {
 document.addEventListener("DOMContentLoaded", function () {
   navigateToPage("home");
 });
+
+
 
 </script>
   <!-- YOUR SCRIPT ENDS HERE -->
