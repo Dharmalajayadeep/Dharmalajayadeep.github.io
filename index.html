@@ -170,57 +170,64 @@
        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
        </svg></button>
 
-    <button onclick="askAI()">
-        Send
-    </button>
+    
 </div>
 
 
      </div><!-- Mobile Navigation -->
      <nav id="mobileMenu" class="mobile-menu lg:hidden">
-      <div class="flex flex-col space-y-4 pb-6"><button onclick="navigateToPage('home')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">Home</button> <button onclick="navigateToPage('overseas-education')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">Overseas Education</button> <button onclick="navigateToPage('visa-services')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">Visa Services</button> <button onclick="navigateToPage('global-holidays')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">Global Holidays</button> <button onclick="navigateToPage('hr-solutions')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">HR Solutions</button> <button onclick="navigateToPage('contact')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">Contact</button> <button id="ctaBtnMobile" class="btn-premium px-6 py-3 rounded-md font-semibold text-sm uppercase tracking-wider shadow-lg mt-2"> Book Consultation </button>
+      <div class="flex flex-col space-y-4 pb-6"><button onclick="navigateToPage('home')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">Home</button> <button onclick="navigateToPage('overseas-education')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">Overseas Education</button> <button onclick="navigateToPage('visa-services')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">Visa Services</button> <button onclick="navigateToPage('global-holidays')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">Global Holidays</button> <button onclick="navigateToPage('hr-solutions')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">HR Solutions</button> <button onclick="navigateToPage('contact')" class="nav-link text-sm uppercase tracking-wider py-2 text-left">Contact</button> 
       </div>
      </nav>
     </div>
    </header><!-- Main Content Container -->
-<main id="pageContent" class="w-full"><!-- Pages will be dynamically shown here -->
-<div class="max-w-4xl mx-auto py-20">
-	<h1 class="text-5xl font-bold text-center mb-4">
-    We Fill It AI
-  </h1>
+<main id="pageContent" class="w-full h-screen flex flex-col bg-white">
 
-  <p class="text-center mb-8">
-    Ask me about visas, study abroad, holiday packages, jobs, and HR services.
-  </p>
-
-  <div
-    id="chatMessages"
-    class="border rounded-xl p-4 h-96 overflow-y-auto mb-4"
-  >
+  <!-- Header / Title -->
+  <div class="text-center py-6 border-b">
+    <h1 class="text-3xl font-bold">We Fill It AI</h1>
+    <p class="text-sm opacity-70 mt-1">
+      Ask about visas, study abroad, jobs, travel & HR services
+    </p>
   </div>
 
-  <div class="flex gap-2">
+  <!-- Chat Messages Area -->
+  <div
+    id="chatMessages"
+    class="flex-1 overflow-y-auto px-4 py-6 space-y-4 bg-gray-50"
+  >
+    <!-- Messages will appear here -->
+
+    <!-- Example AI message -->
+    <div class="flex justify-start">
+      <div class="bg-gray-200 text-black px-4 py-3 rounded-2xl max-w-md">
+        Hello! How can I help you today?
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Input Area (Sticky Bottom) -->
+  <div class="border-t p-4 bg-white flex gap-2">
 
     <input
       id="chatInput"
       type="text"
-      placeholder="Ask anything..."
-      class="flex-1 border p-4 rounded-xl"
+      placeholder="Type your message..."
+      class="flex-1 border rounded-xl px-4 py-3 focus:outline-none"
+      onkeydown="if(event.key==='Enter'){ askAI(); }"
     />
 
     <button
       onclick="askAI()"
-      class="px-6 py-4 rounded-xl"
+      class="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold"
     >
       Send
     </button>
 
   </div>
 
-</div>
-</div>
-
-   </main><!-- Footer -->
+</main>
    <footer class="w-full py-12 border-t">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
      <div class="text-center space-y-4">
