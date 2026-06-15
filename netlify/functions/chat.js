@@ -34,12 +34,15 @@ export default async (req, context) => {
       headers: { "Content-Type": "application/json" }
     });
 
-  } catch (err) {
-    return new Response(JSON.stringify({
-      error: "Server error"
-    }), {
+  } catch (error) {
+  return new Response(
+    JSON.stringify({
+      error: error.message,
+      stack: String(error)
+    }),
+    {
       status: 500,
       headers: { "Content-Type": "application/json" }
-    });
-  }
-};
+    }
+  );
+}
