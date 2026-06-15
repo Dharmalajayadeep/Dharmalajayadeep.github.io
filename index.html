@@ -1207,9 +1207,15 @@
       });
     }
 
+
+const AI_API_URL = "https://wefillitai.dharmalajayadeep.workers.dev";
+
 async function askAI() {
+
   const input = document.getElementById("aiInput");
   const messages = document.getElementById("aiMessages");
+
+  if (!input || !messages) return;
 
   const question = input.value.trim();
   if (!question) return;
@@ -1222,35 +1228,51 @@ async function askAI() {
 
   input.value = "";
 
+  const typingId = "typing";
   messages.innerHTML += `
-    <div id="typing">
-      <b>AI:</b> Thinking...
+    <div id="${typingId}" style="margin:10px;color:#666;">
+      We Fill It AI is thinking...
     </div>
   `;
 
+  messages.scrollTop = messages.scrollHeight;
+
   try {
-    const res = await fetch("/.netlify/functions/chat", {
+
+    const response = await fetch(AI_API_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: question })
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        messages: [
+          { role: "user", content: question }
+        ]
+      })
     });
 
-    const data = await res.json();
+    const data = await response.json();
 
-    document.getElementById("typing").remove();
+    document.getElementById(typingId)?.remove();
+
+    const reply =
+      data.choices?.[0]?.message?.content ||
+      data.reply ||
+      "No response";
 
     messages.innerHTML += `
-      <div style="margin:10px;">
-        <b>AI:</b> ${data.reply}
+      <div style="text-align:left;margin:10px;">
+        <b>AI:</b> ${reply}
       </div>
     `;
 
   } catch (err) {
-    document.getElementById("typing").remove();
+
+    document.getElementById("typing")?.remove();
 
     messages.innerHTML += `
-      <div style="color:red;">
-        AI server not working
+      <div style="color:red;margin:10px;">
+        Failed to connect AI server
       </div>
     `;
   }
@@ -1259,9 +1281,8 @@ async function askAI() {
 }
 
 
-
-
 	  
+
     function closePackageModal() {
       const modal = document.getElementById('packageModal');
       if (modal) {
@@ -1269,53 +1290,7 @@ async function askAI() {
         document.body.style.overflow = 'auto';
       }
     }
-const AI_API_URL = "https://wefillit.in/.netlify/functions/chat";
 
-async function askAI() {
-  const input = document.getElementById("aiInput");
-  const messages = document.getElementById("aiMessages");
-
-  const question = input.value.trim();
-
-  if (!question) return;
-
-  messages.innerHTML += `
-    <div style="margin-bottom:10px;">
-      <strong>You:</strong> ${question}
-    </div>
-  `;
-
-  input.value = "";
-
-  try {
-    const response = await fetch(AI_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        message: question
-      })
-    });
-
-    const data = await response.json();
-
-    messages.innerHTML += `
-      <div style="margin-bottom:15px;">
-        <strong>AI:</strong> ${data.reply}
-      </div>
-    `;
-
-    messages.scrollTop = messages.scrollHeight;
-
-  } catch (error) {
-    messages.innerHTML += `
-      <div>
-        <strong>AI:</strong> Sorry, something went wrong.
-      </div>
-    `;
-  }
-}
     if (window.elementSdk) {
       window.elementSdk.init({
         defaultConfig,
@@ -1346,74 +1321,7 @@ function navigateToPage(page) {
 }
 
 window.elementSdk = window.elementSdk || { config: {} };
-
-async function askAI() {
-
-  const input = document.getElementById("aiInput");
-  const messages = document.getElementById("aiMessages");
-
-  if (!input || !messages) return;
-
-  const question = input.value.trim();
-
-  if (!question) return;
-
-  messages.innerHTML += `
-    <div style="margin-bottom:15px;text-align:right;">
-      <b>You:</b><br>
-      ${question}
-    </div>
-  `;
-
-  input.value = "";
-
-  messages.innerHTML += `
-    <div id="typing">
-      <b>We Fill It AI:</b><br>
-      Thinking...
-    </div>
-  `;
-
-  messages.scrollTop = messages.scrollHeight;
-
-  try {
-
-    const response = await fetch("/.netlify/functions/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        message: question
-      })
-    });
-
-    const data = await response.json();
-
-    document.getElementById("typing").remove();
-
-    messages.innerHTML += `
-      <div style="margin-bottom:20px;">
-        <b>We Fill It AI:</b><br>
-        ${data.reply}
-      </div>
-    `;
-
-  } catch (err) {
-
-    const typing = document.getElementById("typing");
-
-    if (typing) typing.remove();
-
-    messages.innerHTML += `
-      <div style="color:red;">
-        Failed to contact AI server.
-      </div>
-    `;
-  }
-
-  messages.scrollTop = messages.scrollHeight;
-}
+      
 
 document.addEventListener("DOMContentLoaded", function () {
   navigateToPage("home");
