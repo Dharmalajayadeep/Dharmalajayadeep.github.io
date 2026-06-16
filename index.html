@@ -1230,6 +1230,7 @@ async function askAI() {
   const question = input.value.trim();
   if (!question) return;
 
+  // user message
   // 1. show user message
   messages.innerHTML += `
     <div style="text-align:right;margin:10px;">
@@ -1239,15 +1240,20 @@ async function askAI() {
 
   input.value = "";
 
+  // CREATE ONE FIXED AI BLOCK
   // 2. create ONE AI message box
   const aiDiv = document.createElement("div");
   aiDiv.style.margin = "10px";
+  aiDiv.innerHTML = `<b>AI:</b> Thinking...`;
+
   aiDiv.innerHTML = "<b>AI:</b> Thinking...";
   messages.appendChild(aiDiv);
 
   try {
     const res = await fetch(AI_API_URL, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: question })
       headers: {
         "Content-Type": "application/json"
       },
@@ -1258,24 +1264,38 @@ async function askAI() {
 
     const data = await res.json();
 
-   let reply = data?.choices?.[0]?.message?.content || "No response";
+let reply = data.reply || "No response";
+    let reply = data.reply || "No reply";
 
-// STEP 1: normalize
+// THIS is the important part
 reply = reply
-  .replace(/\r/g, "")
-  .trim();
+  .replace(/\n\s*\n/g, "\n")
+  .replace(/\n/g, "<br>");
+    // 3. CLEAN formatting
+    reply = reply
+      .replace(/\r/g, "")
+      .replace(/\n\s*\n/g, "\n")
+      .trim();
 
-// STEP 2: remove MULTIPLE blank lines (IMPORTANT)
-reply = reply.replace(/\n\s*\n+/g, "\n");
+aiDiv.innerHTML = `<b>AI:</b><br>${reply}`;
+    reply = reply
+      .split("\n")
+      .filter(line => line.trim() !== "")
+      .join("<br>");
 
-// STEP 3: split into lines
-const lines = reply.split("\n");
+    // REPLACE thinking instead of adding new message
+    aiDiv.innerHTML = `<b>AI:</b><br>${(data.reply || "No reply").replace(/\n/g, "<br>")}`;
+    // 4. UPDATE SAME BOX (ONLY ONCE)
+    aiDiv.innerHTML = `<b>AI:</b><br>${reply}`;
 
-// STEP 4: remove empty lines
-const clean = lines.filter(l => l.trim() !== "");
+  } catch (err) {
+    aiDiv.innerHTML = `<b>AI:</b> Failed to connect AI server`;
+  }
 
-// STEP 5: render
-aiDiv.innerHTML = `<b>AI:</b><br>` + clean.join("<br>");
+  messages.scrollTop = messages.scrollHeight;
+}
+
+
 
     function closePackageModal() {
       const modal = document.getElementById('packageModal');
@@ -1336,7 +1356,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <script>
     (function(){function c(){var b=a.contentDocument||a.contentWindow.document; /* long code */ })();
   </script>
- 
+
 <footer id="footer" class="text-center py-6 border-t text-sm opacity-70">
   © 2026 We Fill It AI. All rights reserved.
 </footer>
