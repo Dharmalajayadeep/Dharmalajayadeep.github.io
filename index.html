@@ -1257,28 +1257,13 @@ async function askAI() {
 
  const data = await res.json();
 
-document.getElementById("typing")?.remove();
-
-let output = "";
-
-if (data.reply.type === "short") {
-  output = data.reply.answer;
-}
-
-if (data.reply.type === "steps") {
-  output = data.reply.steps.map((s, i) => `${i + 1}. ${s}`).join("\n");
-}
-
-if (data.reply.type === "bullets") {
-  output = data.reply.bullets.map(b => `- ${b}`).join("\n");
-}
+const output = data.reply;
 
 messages.innerHTML += `
-  <div style="margin:10px; white-space:pre-line;">
-    <b>AI:</b> ${output}
+  <div style="margin:10px;">
+    <b>AI:</b><br>${output.replace(/\n/g, "<br>")}
   </div>
 `;
-
   } catch (err) {
     document.getElementById("typing")?.remove();
 
