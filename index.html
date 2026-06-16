@@ -1230,7 +1230,7 @@ async function askAI() {
   const question = input.value.trim();
   if (!question) return;
 
-  // user message
+  // 1. show user message
   messages.innerHTML += `
     <div style="text-align:right;margin:10px;">
       <b>You:</b> ${question}
@@ -1239,33 +1239,40 @@ async function askAI() {
 
   input.value = "";
 
-  // CREATE ONE FIXED AI BLOCK
+  // 2. create ONE AI message box
   const aiDiv = document.createElement("div");
   aiDiv.style.margin = "10px";
-  aiDiv.innerHTML = `<b>AI:</b> Thinking...`;
-
+  aiDiv.innerHTML = "<b>AI:</b> Thinking...";
   messages.appendChild(aiDiv);
 
   try {
     const res = await fetch(AI_API_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: question })
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: question
+      })
     });
 
     const data = await res.json();
 
-let reply = data.reply || "No response";
+    let reply = data.reply || "No reply";
 
-// THIS is the important part
-reply = reply
-  .replace(/\n\s*\n/g, "\n")
-  .replace(/\n/g, "<br>");
+    // 3. CLEAN formatting
+    reply = reply
+      .replace(/\r/g, "")
+      .replace(/\n\s*\n/g, "\n")
+      .trim();
 
-aiDiv.innerHTML = `<b>AI:</b><br>${reply}`;
+    reply = reply
+      .split("\n")
+      .filter(line => line.trim() !== "")
+      .join("<br>");
 
-    // REPLACE thinking instead of adding new message
-    aiDiv.innerHTML = `<b>AI:</b><br>${(data.reply || "No reply").replace(/\n/g, "<br>")}`;
+    // 4. UPDATE SAME BOX (ONLY ONCE)
+    aiDiv.innerHTML = `<b>AI:</b><br>${reply}`;
 
   } catch (err) {
     aiDiv.innerHTML = `<b>AI:</b> Failed to connect AI server`;
@@ -1273,7 +1280,6 @@ aiDiv.innerHTML = `<b>AI:</b><br>${reply}`;
 
   messages.scrollTop = messages.scrollHeight;
 }
-
 
 
     function closePackageModal() {
