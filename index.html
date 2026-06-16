@@ -1230,6 +1230,7 @@ async function askAI() {
   const question = input.value.trim();
   if (!question) return;
 
+  // user message
   messages.innerHTML += `
     <div style="text-align:right;margin:10px;">
       <b>You:</b> ${question}
@@ -1238,45 +1239,31 @@ async function askAI() {
 
   input.value = "";
 
-  messages.innerHTML += `
-    <div id="typing">
-      <b>AI:</b> Thinking...
-    </div>
-  `;
+  // CREATE ONE FIXED AI BLOCK
+  const aiDiv = document.createElement("div");
+  aiDiv.style.margin = "10px";
+  aiDiv.innerHTML = `<b>AI:</b> Thinking...`;
+
+  messages.appendChild(aiDiv);
 
   try {
     const res = await fetch(AI_API_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        message: question
-      })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: question })
     });
 
- const data = await res.json();
+    const data = await res.json();
 
-const output = data.reply;
+    // REPLACE thinking instead of adding new message
+    aiDiv.innerHTML = `<b>AI:</b> ${data.reply || "No reply"}`;
 
-messages.innerHTML += `
-  <div style="margin:10px;">
-    <b>AI:</b><br>${output.replace(/\n/g, "<br>")}
-  </div>
-`;
   } catch (err) {
-    document.getElementById("typing")?.remove();
-
-    messages.innerHTML += `
-      <div style="color:red;">
-        Failed to connect AI server
-      </div>
-    `;
+    aiDiv.innerHTML = `<b>AI:</b> Failed to connect AI server`;
   }
 
   messages.scrollTop = messages.scrollHeight;
 }
-
 
 
 
