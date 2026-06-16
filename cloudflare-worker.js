@@ -10,8 +10,27 @@ export default {
 
     if (request.method === "OPTIONS") {
       return new Response(null, {
+        status: 204,
         headers: corsHeaders
       });
+    }
+
+    async function loadFile(path) {
+      try {
+        const url =
+          `https://raw.githubusercontent.com/Dharmalajayadeep/Dharmalajayadeep.github.io/main/${path}`;
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          return "";
+        }
+
+        return await response.text();
+
+      } catch (error) {
+        return "";
+      }
     }
 
     try {
@@ -20,7 +39,7 @@ export default {
 
       try {
         body = await request.json();
-      } catch (e) {
+      } catch {
         body = {};
       }
 
@@ -42,21 +61,80 @@ export default {
 
       const text = userMessage.toLowerCase();
 
-      const kb = {
-        visa: "Visa: 3–15 days processing, passport required.",
-        jobs: "Jobs: BPO, admin, sales roles available.",
-        education: "Education: MBBS, MBA abroad options.",
-        travel: "Travel: Holiday + visa packages.",
-        company: "We Fill It: Study abroad + visa services."
-      };
+      // -------------------------
+      // KNOWLEDGE BASE LOADING
+      // -------------------------
 
       let context = "";
 
-      if (text.includes("visa")) context += kb.visa + "\n";
-      if (text.includes("job")) context += kb.jobs + "\n";
-      if (text.includes("study") || text.includes("education")) context += kb.education + "\n";
-      if (text.includes("travel")) context += kb.travel + "\n";
-      if (text.includes("company")) context += kb.company + "\n";
+      // Always load company information
+      context += await loadFile("Company/WeFillIt.txt");
+
+      // USA / F1
+      if (
+        text.includes("usa") ||
+        text.includes("america") ||
+        text.includes("f1") ||
+        text.includes("student visa")
+      ) {
+        context += "\n\n" + await loadFile("Visa/US_F1_Visa.txt");
+        context += "\n\n" + await loadFile("Education/USA.txt");
+      }
+
+      // France
+      if (text.includes("france")) {
+        context += "\n\n" + await loadFile("Education/France_Student_Process.txt");
+      }
+
+      // MBBS Georgia
+      if (
+        text.includes("mbbs") ||
+        text.includes("georgia")
+      ) {
+        context += "\n\n" + await loadFile("Education/MBBS_Georgia.txt");
+      }
+
+      // Australia Visa
+      if (text.includes("australia")) {
+        context += "\n\n" + await loadFile("Visa/Australia_Visitor_Visa.txt");
+      }
+
+      // China Visa
+      if (text.includes("china")) {
+        context += "\n\n" + await loadFile("Visa/China_Visit_Visa.txt");
+      }
+
+      // Netherlands Visa
+      if (
+        text.includes("netherlands") ||
+        text.includes("schengen")
+      ) {
+        context += "\n\n" + await loadFile("Visa/Netherlands_Visit_Visa.txt");
+      }
+
+      // Jobs
+      if (
+        text.includes("job") ||
+        text.includes("career") ||
+        text.includes("resume") ||
+        text.includes("work")
+      ) {
+        context += "\n\n" + await loadFile("Jobs/General.txt");
+      }
+
+      // Travel
+      if (
+        text.includes("travel") ||
+        text.includes("holiday") ||
+        text.includes("trip") ||
+        text.includes("vacation")
+      ) {
+        context += "\n\n" + await loadFile("Travel/General_Travel_Assistant.txt");
+      }
+
+      // -------------------------
+      // OPENROUTER
+      // -------------------------
 
       const aiResponse = await fetch(
         "https://openrouter.ai/api/v1/chat/completions",
@@ -73,19 +151,59 @@ export default {
             messages: [
               {
                 role: "system",
-                content: `You are We Fill It AI assistant.
+                content: `
+You are We Fill It AI, the official assistant of We Fill It.
 
-Use this context when relevant:
+Your responsibilities:
+- Overseas Education
+- Student Visas
+- Tourist Visas
+- Travel Planning
+- Job Assistance
+- Career Guidance
+
+Always answer using the provided knowledge base.
+
+If the user is interested in overseas education, collect:
+- Full Name
+- Mobile Number
+- Email Address
+- Preferred Country
+- Preferred Course
+
+If the user is interested in tourist visas, collect:
+- Full Name
+- Mobile Number
+- Email Address
+- Destination Country
+- Travel Date
+
+If the user is interested in jobs, collect:
+- Resume
+- Experience
+- Skills
+- Preferred Country
+- Expected Salary
+
+Company Details:
+We Fill It
+Website: wefillit.in
+WhatsApp: +91 9182692826
+
+If information is unavailable, politely ask the user to contact We Fill It.
+
+KNOWLEDGE BASE:
 
 ${context}
-
-Be helpful, professional and concise.`
+`
               },
               {
                 role: "user",
                 content: userMessage
               }
-            ]
+            ],
+            temperature: 0.4,
+            max_tokens: 700
           })
         }
       );
@@ -96,7 +214,7 @@ Be helpful, professional and concise.`
 
       try {
         data = JSON.parse(textResponse);
-      } catch (e) {
+      } catch {
         return new Response(
           JSON.stringify({
             reply: "AI parsing error",
@@ -111,7 +229,7 @@ Be helpful, professional and concise.`
       const reply =
         data?.choices?.[0]?.message?.content ||
         data?.error?.message ||
-        "No response available";
+        "Sorry, I could not generate a response.";
 
       return new Response(
         JSON.stringify({
