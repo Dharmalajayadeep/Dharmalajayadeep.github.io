@@ -1,4 +1,3 @@
-
 export default {
   async fetch(request, env) {
 
@@ -13,104 +12,114 @@ export default {
       });
     }
 
-    const { messages } = await request.json();
+    try {
+      let body = {};
 
-    const userMessage = messages?.[messages.length - 1]?.content || "";
-
-    // =========================
-    // 🧠 KNOWLEDGE BASE (START)
-    // =========================
-
-    const knowledgeBase = {
-      visa: `
-Visa Info:
-- Tourist visa requires valid passport
-- Processing time: 3–15 days
-- Common countries: USA, UK, Canada, Schengen
-      `,
-
-      jobs: `
-Jobs Info:
-- Entry roles: BPO, Admin, Sales
-- Requirements: basic English + computer skills
-- Remote jobs also available
-      `,
-
-      education: `
-Education Abroad:
-- MBBS, MS, MBA popular courses
-- Countries: UK, Germany, USA, Australia
-      `,
-
-      travel: `
-Travel Services:
-- Holiday packages available
-- Visa + hotel + flight combo
-      `,
-
-      company: `
-We Fill It:
-- Overseas education consultancy
-- HR solutions
-- Visa assistance
-      `
-    };
-
-    // =========================
-    // 🧠 SIMPLE CONTEXT ENGINE
-    // =========================
-
-    let context = "";
-
-    const lower = userMessage.toLowerCase();
-
-    if (lower.includes("visa")) context += knowledgeBase.visa;
-    if (lower.includes("job")) context += knowledgeBase.jobs;
-    if (lower.includes("study") || lower.includes("education")) context += knowledgeBase.education;
-    if (lower.includes("travel") || lower.includes("holiday")) context += knowledgeBase.travel;
-    if (lower.includes("company") || lower.includes("we fill")) context += knowledgeBase.company;
-
-    // =========================
-    // 🤖 OPENROUTER CALL
-    // =========================
-
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${env.OPENROUTER_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: "openai/gpt-4o-mini",
-        messages: [
-          {
-            role: "system",
-            content: `
-You are We Fill It AI assistant.
-
-Use this knowledge base if relevant:
-${context}
-
-Rules:
-- Be concise
-- Be helpful
-- If unsure, ask follow-up question
-            `
-          },
-          ...messages
-        ]
-      })
-    });
-
-    const data = await response.json();
-
-    return new Response(JSON.stringify({
-      reply: data.choices?.[0]?.message?.content || "No response"
-    }), {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
+      try {
+        body = await request.json();
+      } catch (e) {
+        body = {};
       }
-    });
+
+      const userMessage =
+        body.message ||
+        body?.messages?.[body.messages.length - 1]?.content ||
+        "";
+
+      if (!userMessage) {
+        return new Response(JSON.stringify({ reply: "No message received" }), {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+          }
+        });
+      }
+
+      const text = userMessage.toLowerCase();
+
+      const kb = {
+        visa: "Visa: 3–15 days processing, passport required.",
+        jobs: "Jobs: BPO, admin, sales roles available.",
+        education: "Education: MBBS, MBA abroad options.",
+        travel: "Travel: Holiday + visa packages.",
+        company: "We Fill It: Study abroad + visa services."
+      };
+
+      let context = "";
+
+      if (text.includes("visa")) context += kb.visa + "\n";
+      if (text.includes("job")) context += kb.jobs + "\n";
+      if (text.includes("study") || text.includes("education")) context += kb.education + "\n";
+      if (text.includes("travel")) context += kb.travel + "\n";
+      if (text.includes("company")) context += kb.company + "\n";
+
+      // OPENROUTER CALL (SAFE)
+      const aiResponse = await fetch(
+        "https://openrouter.ai/api/v1/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${env.OPENROUTER_API_KEY}`,
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://wefillit.in",
+            "X-Title": "We Fill It AI"
+          },
+          body: JSON.stringify({
+            model: "meta-llama/llama-3.1-8b-instruct",
+            messages: [
+              {
+                role: "system",
+                content: `You are We Fill It AI assistant. Use context:\n${context}`
+              },
+              {
+                role: "user",
+                content: userMessage
+              }
+            ]
+          })
+        }
+      );
+
+      // 🔥 IMPORTANT SAFE PARSING
+      const textResponse = await aiResponse.text();
+
+      let data;
+      try {
+        data = JSON.parse(textResponse);
+      } catch (e) {
+        return new Response(JSON.stringify({
+          reply: "AI parsing error",
+          raw: textResponse
+        }), {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+          }
+        });
+      }
+
+      const reply =
+        data?.choices?.[0]?.message?.content ||
+        data?.error?.message ||
+        "No response available";
+
+      return new Response(JSON.stringify({ reply }), {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        }
+      });
+
+    } catch (err) {
+      return new Response(JSON.stringify({
+        reply: "Server error",
+        debug: err?.message
+      }), {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        }
+      });
+    }
   }
 };
