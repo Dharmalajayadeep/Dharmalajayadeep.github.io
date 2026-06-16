@@ -20,7 +20,7 @@ html, body {
   flex-direction: column;
 }
 
-	  
+
     body {
       box-sizing: border-box;
     }
@@ -184,7 +184,7 @@ html, body {
        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
        </svg></button>
 
-    
+
 </div>
 
 
@@ -370,31 +370,31 @@ html, body {
 		
 		
 		
-		<section class="w-full py-24 sm:py-32 lg:py-40 page-transition relative overflow-hidden" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color};">
+		<section class="w-full py-24 sm:py-32 lg:py-40 page-transition relative overflow-hidden" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color};">
           <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl" style="background: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl" style="background: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color};"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl" style="background: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl" style="background: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color};"></div>
           </div>
           
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="text-center max-w-5xl mx-auto">
-              <div class="inline-block mb-6 px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase badge-glow" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};">
-                <span>${window.elementSdk?.config?.years_experience || defaultConfig.years_experience}</span> • Trusted by Students Worldwide
+              <div class="inline-block mb-6 px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase badge-glow" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};">
+                <span>${window.elementSdk.config.years_experience || defaultConfig.years_experience}</span> • Trusted by Students Worldwide
               </div>
               
-              <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold heading-font mb-6 leading-tight" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
-                ${window.elementSdk?.config?.hero_headline || defaultConfig.hero_headline}
+              <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold heading-font mb-6 leading-tight" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
+                ${window.elementSdk.config.hero_headline || defaultConfig.hero_headline}
               </h1>
               
-              <p class="text-lg sm:text-xl lg:text-2xl mb-12 max-w-3xl mx-auto font-light leading-relaxed" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
-                ${window.elementSdk?.config?.hero_subheadline || defaultConfig.hero_subheadline}
+              <p class="text-lg sm:text-xl lg:text-2xl mb-12 max-w-3xl mx-auto font-light leading-relaxed" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
+                ${window.elementSdk.config.hero_subheadline || defaultConfig.hero_subheadline}
               </p>
               
               <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button class="btn-premium px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider shadow-xl" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}; color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color};">
-                  ${window.elementSdk?.config?.hero_cta || defaultConfig.hero_cta}
+                <button class="btn-premium px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider shadow-xl" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}; color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color};">
+                  ${window.elementSdk.config.hero_cta || defaultConfig.hero_cta}
                 </button>
-                <button onclick="navigateToPage('contact')" class="px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider border-2 transition-all hover:shadow-lg" style="border-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}; color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}; background: transparent;">
+                <button onclick="navigateToPage('contact')" class="px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider border-2 transition-all hover:shadow-lg" style="border-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}; color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}; background: transparent;">
                   Contact Us
                 </button>
               </div>
@@ -402,59 +402,59 @@ html, body {
           </div>
         </section>
 
-        <section class="w-full py-16 border-y" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30;">
+        <section class="w-full py-16 border-y" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30;">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div class="space-y-2">
-                <div class="stat-counter text-5xl sm:text-6xl lg:text-7xl font-bold" style="color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color};">${window.elementSdk?.config?.visa_approvals || defaultConfig.visa_approvals}</div>
-                <div class="text-sm sm:text-base uppercase tracking-widest font-semibold opacity-75" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">Visa Approvals This Year</div>
+                <div class="stat-counter text-5xl sm:text-6xl lg:text-7xl font-bold" style="color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color};">${window.elementSdk.config.visa_approvals || defaultConfig.visa_approvals}</div>
+                <div class="text-sm sm:text-base uppercase tracking-widest font-semibold opacity-75" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">Visa Approvals This Year</div>
               </div>
               <div class="space-y-2">
-                <div class="stat-counter text-5xl sm:text-6xl lg:text-7xl font-bold" style="color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color};">${window.elementSdk?.config?.success_rate || defaultConfig.success_rate}</div>
-                <div class="text-sm sm:text-base uppercase tracking-widest font-semibold opacity-75" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">Success Rate</div>
+                <div class="stat-counter text-5xl sm:text-6xl lg:text-7xl font-bold" style="color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color};">${window.elementSdk.config.success_rate || defaultConfig.success_rate}</div>
+                <div class="text-sm sm:text-base uppercase tracking-widest font-semibold opacity-75" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">Success Rate</div>
               </div>
               <div class="space-y-2">
-                <div class="stat-counter text-5xl sm:text-6xl lg:text-7xl font-bold" style="color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color};">5+</div>
-                <div class="text-sm sm:text-base uppercase tracking-widest font-semibold opacity-75" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">Years Experience</div>
+                <div class="stat-counter text-5xl sm:text-6xl lg:text-7xl font-bold" style="color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color};">5+</div>
+                <div class="text-sm sm:text-base uppercase tracking-widest font-semibold opacity-75" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">Years Experience</div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="w-full py-20 sm:py-28" style="background-color: ${(window.elementSdk?.config?.background_color || defaultConfig.background_color)};">
+        <section class="w-full py-20 sm:py-28" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color};">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
-              <div class="inline-block mb-6 px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase" style="background-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}30; color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color};">
+              <div class="inline-block mb-6 px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase" style="background-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}30; color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color};">
                 🎉 Proud Achievement
               </div>
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 B1/B2 Visit Visa Experts
               </h2>
-              <p class="text-lg sm:text-xl mb-8 leading-relaxed" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <p class="text-lg sm:text-xl mb-8 leading-relaxed" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 We specialize in B1/B2 visit visa applications for the United States with an exceptional track record of 120+ successful approvals this year with 100% success rate
               </p>
             </div>
           </div>
         </section>
 
-        <section class="w-full py-20 sm:py-28" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color};">
+        <section class="w-full py-20 sm:py-28" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color};">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
-                ${window.elementSdk?.config?.approach_title || defaultConfig.approach_title}
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
+                ${window.elementSdk.config.approach_title || defaultConfig.approach_title}
               </h2>
-              <div class="section-divider max-w-xs mx-auto mb-8" style="color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};"></div>
+              <div class="section-divider max-w-xs mx-auto mb-8" style="color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};"></div>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div class="space-y-6">
-                <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+                <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                   <div class="text-5xl mb-4">🎯</div>
                   <h3 class="text-2xl font-bold heading-font mb-3">No University Partnerships</h3>
                   <p class="leading-relaxed">We don't chase numbers or partnerships. Our independence means we recommend what's truly best for YOU, not what benefits us financially.</p>
                 </div>
                 
-                <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+                <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                   <div class="text-5xl mb-4">👥</div>
                   <h3 class="text-2xl font-bold heading-font mb-3">Limited Students Per Intake</h3>
                   <p class="leading-relaxed">We intentionally process only a few students per intake to ensure every detail is at our fingertips and each student receives dedicated attention.</p>
@@ -462,13 +462,13 @@ html, body {
               </div>
               
               <div class="space-y-6">
-                <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+                <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                   <div class="text-5xl mb-4">💯</div>
                   <h3 class="text-2xl font-bold heading-font mb-3">100% Success Focus</h3>
-                  <p class="leading-relaxed">${window.elementSdk?.config?.approach_description || defaultConfig.approach_description}</p>
+                  <p class="leading-relaxed">${window.elementSdk.config.approach_description || defaultConfig.approach_description}</p>
                 </div>
                 
-                <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+                <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                   <div class="text-5xl mb-4">🤝</div>
                   <h3 class="text-2xl font-bold heading-font mb-3">Personal Relationship</h3>
                   <p class="leading-relaxed">You're not just a number. We build lasting relationships and guide you through every step with transparency and care.</p>
@@ -480,67 +480,67 @@ html, body {
       `,
 
       'overseas-education': () => `
-        <section class="w-full py-20 sm:py-28 page-transition" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color};">
+        <section class="w-full py-20 sm:py-28 page-transition" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color};">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 Our Education Services
               </h2>
-              <p class="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <p class="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 Expert guidance for studying in 39 countries with personalized application support and 100% transparency
               </p>
-              <div class="section-divider max-w-xs mx-auto mt-8" style="color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};"></div>
+              <div class="section-divider max-w-xs mx-auto mt-8" style="color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 <div class="text-5xl mb-4">🎓</div>
                 <h3 class="text-xl font-bold heading-font mb-3">University & Course Selection</h3>
                 <p class="text-sm leading-relaxed opacity-90">Expert guidance in choosing the right university and course aligned with your career goals and academic background.</p>
               </div>
               
-              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 <div class="text-5xl mb-4">📝</div>
                 <h3 class="text-xl font-bold heading-font mb-3">Admissions Support</h3>
                 <p class="text-sm leading-relaxed opacity-90">Complete application assistance including form filling, document compilation, and submission to multiple universities.</p>
               </div>
               
-              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 <div class="text-5xl mb-4">📄</div>
                 <h3 class="text-xl font-bold heading-font mb-3">SOP & Documentation</h3>
                 <p class="text-sm leading-relaxed opacity-90">Professional help crafting compelling Statement of Purpose and organizing all required documents for applications.</p>
               </div>
               
-              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 <div class="text-5xl mb-4">🎁</div>
                 <h3 class="text-xl font-bold heading-font mb-3">Scholarships Guidance</h3>
                 <p class="text-sm leading-relaxed opacity-90">Identification and application support for scholarships, grants, and financial aid opportunities worldwide.</p>
               </div>
               
-              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 <div class="text-5xl mb-4">✈️</div>
                 <h3 class="text-xl font-bold heading-font mb-3">Visa Application</h3>
                 <p class="text-sm leading-relaxed opacity-90">Comprehensive student visa processing including document preparation, interview coaching, and application tracking.</p>
               </div>
               
-              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <div class="card-premium p-8 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 <div class="text-5xl mb-4">🛫</div>
                 <h3 class="text-xl font-bold heading-font mb-3">Pre-Departure Assistance</h3>
                 <p class="text-sm leading-relaxed opacity-90">Orientation sessions covering accommodation, banking, travel arrangements, and settling into your new country.</p>
               </div>
             </div>
             
-            <div class="max-w-4xl mx-auto mb-16 card-premium p-10 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+            <div class="max-w-4xl mx-auto mb-16 card-premium p-10 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
               <h3 class="text-2xl font-bold heading-font mb-6 text-center">Your Success is Our Mission</h3>
               <p class="text-lg leading-relaxed mb-4">We believe in quality over quantity. Unlike large consultancies chasing numbers with hundreds of university partnerships, we work with a limited number of students. This means your profile, preferences, and progress are always at our fingertips.</p>
               <p class="text-lg leading-relaxed">Each student receives personalized attention, with experienced counselors who know your story, understand your goals, and guide you through every step of your study abroad journey.</p>
             </div>
             
             <div class="mb-12">
-              <h3 class="text-2xl font-bold heading-font mb-8 text-center" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">We Work With 39 Countries Worldwide</h3>
+              <h3 class="text-2xl font-bold heading-font mb-8 text-center" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">We Work With 39 Countries Worldwide</h3>
               <div id="educationCountries" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
                 ${educationCountries.map(country => `
-                  <div class="country-chip px-5 py-4 rounded-xl shadow-lg text-center font-semibold border transition-all" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30;">
+                  <div class="country-chip px-5 py-4 rounded-xl shadow-lg text-center font-semibold border transition-all" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; color: ${window.elementSdk.config.text_color || defaultConfig.text_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30;">
                     ${country}
                   </div>
                 `).join('')}
@@ -548,7 +548,7 @@ html, body {
             </div>
             
             <div class="text-center">
-              <button onclick="navigateToPage('contact')" class="btn-premium px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider shadow-xl" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}; color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color};">
+              <button onclick="navigateToPage('contact')" class="btn-premium px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider shadow-xl" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}; color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color};">
                 Start Your Application
               </button>
             </div>
@@ -557,28 +557,28 @@ html, body {
       `,
 
       'visa-services': () => `
-        <section class="w-full py-20 sm:py-28 page-transition" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color};">
+        <section class="w-full py-20 sm:py-28 page-transition" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color};">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-              <div class="inline-block mb-6 px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase" style="background-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}30; color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color};">
+              <div class="inline-block mb-6 px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase" style="background-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}30; color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color};">
                 🏆 100% Success Rate
               </div>
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 Tourist Visa Services
               </h2>
-              <p class="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <p class="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 Professional tourist visa assistance with proven success across 17 destinations. 120+ B1/B2 approvals this year!
               </p>
-              <div class="section-divider max-w-xs mx-auto mt-8" style="color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};"></div>
+              <div class="section-divider max-w-xs mx-auto mt-8" style="color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};"></div>
             </div>
             
             <div class="max-w-5xl mx-auto mb-16">
-              <h3 class="text-2xl font-bold heading-font mb-10 text-center" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">Our Visa Application Process</h3>
+              <h3 class="text-2xl font-bold heading-font mb-10 text-center" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">Our Visa Application Process</h3>
               
               <div class="space-y-8">
-                <div class="card-premium p-8 rounded-2xl shadow-xl border flex items-start space-x-6" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+                <div class="card-premium p-8 rounded-2xl shadow-xl border flex items-start space-x-6" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                   <div class="flex-shrink-0">
-                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold heading-font" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};">1</div>
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold heading-font" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};">1</div>
                   </div>
                   <div>
                     <h4 class="text-xl font-bold heading-font mb-2">Initial Consultation</h4>
@@ -586,9 +586,9 @@ html, body {
                   </div>
                 </div>
                 
-                <div class="card-premium p-8 rounded-2xl shadow-xl border flex items-start space-x-6" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+                <div class="card-premium p-8 rounded-2xl shadow-xl border flex items-start space-x-6" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                   <div class="flex-shrink-0">
-                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold heading-font" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};">2</div>
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold heading-font" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};">2</div>
                   </div>
                   <div>
                     <h4 class="text-xl font-bold heading-font mb-2">Documentation & Preparation</h4>
@@ -596,9 +596,9 @@ html, body {
                   </div>
                 </div>
                 
-                <div class="card-premium p-8 rounded-2xl shadow-xl border flex items-start space-x-6" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+                <div class="card-premium p-8 rounded-2xl shadow-xl border flex items-start space-x-6" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                   <div class="flex-shrink-0">
-                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold heading-font" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};">3</div>
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold heading-font" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};">3</div>
                   </div>
                   <div>
                     <h4 class="text-xl font-bold heading-font mb-2">Application Submission</h4>
@@ -606,9 +606,9 @@ html, body {
                   </div>
                 </div>
                 
-                <div class="card-premium p-8 rounded-2xl shadow-xl border flex items-start space-x-6" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+                <div class="card-premium p-8 rounded-2xl shadow-xl border flex items-start space-x-6" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                   <div class="flex-shrink-0">
-                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold heading-font" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};">4</div>
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold heading-font" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};">4</div>
                   </div>
                   <div>
                     <h4 class="text-xl font-bold heading-font mb-2">Interview Coaching</h4>
@@ -616,9 +616,9 @@ html, body {
                   </div>
                 </div>
                 
-                <div class="card-premium p-8 rounded-2xl shadow-xl border flex items-start space-x-6" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+                <div class="card-premium p-8 rounded-2xl shadow-xl border flex items-start space-x-6" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                   <div class="flex-shrink-0">
-                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold heading-font" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};">5</div>
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold heading-font" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30; color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};">5</div>
                   </div>
                   <div>
                     <h4 class="text-xl font-bold heading-font mb-2">Tracking & Follow-up</h4>
@@ -628,16 +628,16 @@ html, body {
               </div>
             </div>
             
-            <div class="max-w-5xl mx-auto mb-16 card-premium p-10 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+            <div class="max-w-5xl mx-auto mb-16 card-premium p-10 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
               <h3 class="text-2xl font-bold heading-font mb-4 text-center">Trusted by Thousands</h3>
               <p class="text-lg leading-relaxed text-center">Our experienced visa consultants stay updated with the latest immigration policies and embassy requirements. We maintain high approval rates through meticulous documentation and ethical practices.</p>
             </div>
             
             <div class="mb-12">
-              <h3 class="text-2xl font-bold heading-font mb-8 text-center" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">Tourist Visa Services for 17 Destinations</h3>
+              <h3 class="text-2xl font-bold heading-font mb-8 text-center" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">Tourist Visa Services for 17 Destinations</h3>
               <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
                 ${visaCountries.map(country => `
-                  <div class="country-chip px-5 py-4 rounded-xl shadow-lg text-center font-semibold border transition-all" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color}; border-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}30;">
+                  <div class="country-chip px-5 py-4 rounded-xl shadow-lg text-center font-semibold border transition-all" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; color: ${window.elementSdk.config.text_color || defaultConfig.text_color}; border-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}30;">
                     <div class="text-3xl mb-2">${country.flag}</div>
                     <div>${country.name}</div>
                   </div>
@@ -645,10 +645,10 @@ html, body {
               </div>
             </div>
             
-            <div class="max-w-4xl mx-auto card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+            <div class="max-w-4xl mx-auto card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
               <h3 class="text-2xl font-bold heading-font mb-4">Specializing in B1/B2 USA Visit Visas</h3>
               <p class="text-lg mb-6">Proud to have achieved 120+ successful B1/B2 visit visa approvals this year with 100% success rate!</p>
-              <button onclick="navigateToPage('contact')" class="btn-premium px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider shadow-xl" style="background-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}; color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color};">
+              <button onclick="navigateToPage('contact')" class="btn-premium px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider shadow-xl" style="background-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}; color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color};">
                 Apply for Tourist Visa
               </button>
             </div>
@@ -657,13 +657,13 @@ html, body {
       `,
 
       'global-holidays': () => `
-        <section class="w-full py-20 sm:py-28 page-transition" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color};">
+        <section class="w-full py-20 sm:py-28 page-transition" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color};">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 Global Holiday Packages
               </h2>
-              <p class="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed mb-8" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <p class="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed mb-8" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 Discover amazing destinations with our curated holiday packages
               </p>
               
@@ -675,7 +675,7 @@ html, body {
                     id="packageSearch" 
                     placeholder="Search by destination or package name..." 
                     class="w-full px-6 py-4 rounded-xl shadow-lg text-lg border-2 focus:outline-none transition-all"
-                    style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40;"
+                    style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; color: ${window.elementSdk.config.text_color || defaultConfig.text_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40;"
                     oninput="filterPackages(this.value)"
                   />
                   <svg class="absolute right-6 top-1/2 transform -translate-y-1/2 w-6 h-6 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -744,7 +744,7 @@ html, body {
                 ];
                 
                 return packages.map(pkg => `
-                  <div class="package-card card-premium rounded-xl shadow-lg border overflow-hidden" data-package-id="${pkg.id}" data-dest="${pkg.dest}" data-name="${pkg.name}" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+                  <div class="package-card card-premium rounded-xl shadow-lg border overflow-hidden" data-package-id="${pkg.id}" data-dest="${pkg.dest}" data-name="${pkg.name}" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                     <div class="p-6">
                       <div class="text-5xl mb-3">${pkg.flag}</div>
                       <div class="text-sm font-semibold mb-2 opacity-75">${pkg.dest}</div>
@@ -765,12 +765,12 @@ html, body {
                         </div>
                       </div>
                       
-                      <div class="border-t pt-4 mt-4" style="border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30;">
+                      <div class="border-t pt-4 mt-4" style="border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30;">
                         <div class="text-xs opacity-75 mb-1">Starting from</div>
-                        <div class="text-2xl font-bold heading-font mb-1" style="color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color};">₹${pkg.price}</div>
+                        <div class="text-2xl font-bold heading-font mb-1" style="color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color};">₹${pkg.price}</div>
                         <div class="text-xs opacity-75 mb-4">Per person</div>
                         
-                        <button onclick="showPackageDetails('${pkg.id}')" class="w-full btn-premium px-4 py-3 rounded-lg font-semibold text-sm mb-2 transition-all" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}; color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color};">
+                        <button onclick="showPackageDetails('${pkg.id}')" class="w-full btn-premium px-4 py-3 rounded-lg font-semibold text-sm mb-2 transition-all" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}; color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color};">
                           View Details
                         </button>
                       </div>
@@ -782,28 +782,28 @@ html, body {
             
             <div id="noResults" class="text-center py-16 hidden">
               <div class="text-6xl mb-4">🔍</div>
-              <h3 class="text-2xl font-bold heading-font mb-2" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">No packages found</h3>
-              <p style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">Try searching with different keywords</p>
+              <h3 class="text-2xl font-bold heading-font mb-2" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">No packages found</h3>
+              <p style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">Try searching with different keywords</p>
             </div>
           </div>
         </section>
       `,
 
       'hr-solutions': () => `
-        <section class="w-full py-20 sm:py-28 page-transition" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color};">
+        <section class="w-full py-20 sm:py-28 page-transition" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color};">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 HR Solutions & Recruitment
               </h2>
-              <p class="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <p class="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 Professional HR consulting and international recruitment services for businesses seeking global talent
               </p>
-              <div class="section-divider max-w-xs mx-auto mt-8" style="color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};"></div>
+              <div class="section-divider max-w-xs mx-auto mt-8" style="color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-              <div class="card-premium p-10 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <div class="card-premium p-10 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 <div class="text-5xl mb-4">🎯</div>
                 <h3 class="text-2xl font-bold heading-font mb-4">International Recruitment</h3>
                 <p class="leading-relaxed mb-6">Connect with global talent and facilitate international hiring with complete visa and relocation support</p>
@@ -827,7 +827,7 @@ html, body {
                 </ul>
               </div>
               
-              <div class="card-premium p-10 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <div class="card-premium p-10 rounded-2xl shadow-xl border" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 <div class="text-5xl mb-4">💼</div>
                 <h3 class="text-2xl font-bold heading-font mb-4">HR Consulting</h3>
                 <p class="leading-relaxed mb-6">Strategic HR solutions, workforce planning, and employment compliance for global operations</p>
@@ -852,7 +852,7 @@ html, body {
               </div>
             </div>
             
-            <div class="max-w-4xl mx-auto card-premium p-8 rounded-2xl shadow-xl border mb-16" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+            <div class="max-w-4xl mx-auto card-premium p-8 rounded-2xl shadow-xl border mb-16" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
               <h3 class="text-2xl font-bold heading-font mb-4 text-center">Industries We Serve</h3>
               <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div class="p-4">
@@ -875,7 +875,7 @@ html, body {
             </div>
             
             <div class="text-center">
-              <button onclick="navigateToPage('contact')" class="btn-premium px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider shadow-xl" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}; color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color};">
+              <button onclick="navigateToPage('contact')" class="btn-premium px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider shadow-xl" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}; color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color};">
                 Discuss Your HR Needs
               </button>
             </div>
@@ -884,21 +884,21 @@ html, body {
       `,
 
       'contact': () => `
-        <section class="w-full py-20 sm:py-28" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color};">
+        <section class="w-full py-20 sm:py-28" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color};">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold heading-font mb-6" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
                 Get In Touch
               </h2>
-              <p class="text-lg sm:text-xl" style="color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">Let's discuss your global aspirations</p>
-              <div class="section-divider max-w-xs mx-auto mt-8" style="color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color};"></div>
+              <p class="text-lg sm:text-xl" style="color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">Let's discuss your global aspirations</p>
+              <div class="section-divider max-w-xs mx-auto mt-8" style="color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color};"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
               <!-- Phone -->
-              <div class="card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
-                <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-6" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30;">
-                  <svg class="w-8 h-8" fill="none" stroke="${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}" viewBox="0 0 24 24">
+              <div class="card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
+                <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-6" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30;">
+                  <svg class="w-8 h-8" fill="none" stroke="${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                   </svg>
                 </div>
@@ -909,9 +909,9 @@ html, body {
               </div>
               
               <!-- Email -->
-              <div class="card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
-                <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-6" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30;">
-                  <svg class="w-8 h-8" fill="none" stroke="${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}" viewBox="0 0 24 24">
+              <div class="card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
+                <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-6" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30;">
+                  <svg class="w-8 h-8" fill="none" stroke="${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
                 </div>
@@ -921,23 +921,23 @@ html, body {
               </div>
               
               <!-- WhatsApp -->
-              <div class="card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
-                <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-6" style="background-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}30;">
-                  <svg class="w-8 h-8" fill="${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}" viewBox="0 0 24 24">
+              <div class="card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
+                <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-6" style="background-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}30;">
+                  <svg class="w-8 h-8" fill="${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
                   </svg>
                 </div>
                 <h3 class="font-bold heading-font mb-4 text-xl">WhatsApp</h3>
                 <p class="font-semibold mb-4">+91 9182692826</p>
-                <a href="https://wa.me/919182692826" target="_blank" rel="noopener noreferrer" class="inline-block btn-premium px-6 py-2 rounded-md text-sm font-semibold uppercase tracking-wider" style="background-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}; color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color};">
+                <a href="https://wa.me/919182692826" target="_blank" rel="noopener noreferrer" class="inline-block btn-premium px-6 py-2 rounded-md text-sm font-semibold uppercase tracking-wider" style="background-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}; color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color};">
                   Chat Now
                 </a>
               </div>
               
               <!-- Location -->
-              <div class="card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
-                <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-6" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30;">
-                  <svg class="w-8 h-8" fill="none" stroke="${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}" viewBox="0 0 24 24">
+              <div class="card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
+                <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-6" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30;">
+                  <svg class="w-8 h-8" fill="none" stroke="${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   </svg>
@@ -947,7 +947,7 @@ html, body {
               </div>
             </div>
             
-            <div class="max-w-4xl mx-auto card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
+            <div class="max-w-4xl mx-auto card-premium p-8 rounded-2xl shadow-xl border text-center" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
               <h3 class="text-2xl font-bold heading-font mb-4">Office Hours</h3>
               <p class="text-lg">Monday to Saturday: 10:00 AM – 6:00 PM</p>
               <p class="mt-2 opacity-75">Sunday: Closed</p>
@@ -958,7 +958,7 @@ html, body {
     };
 
     function navigateToPage(pageName) {
-      window.elementSdk?.config?.current_page = pageName;
+      window.elementSdk.config.current_page = pageName;
       window.elementSdk.setConfig({ current_page: pageName });
 
       const mobileMenu = document.getElementById('mobileMenu');
@@ -1048,53 +1048,53 @@ html, body {
     const capabilities = {
       recolorables: [
         {
-          get: () => window.elementSdk?.config?.background_color || defaultConfig.background_color,
+          get: () => window.elementSdk.config.background_color || defaultConfig.background_color,
           set: (value) => {
-            window.elementSdk?.config?.background_color = value;
+            window.elementSdk.config.background_color = value;
             window.elementSdk.setConfig({ background_color: value });
           }
         },
         {
-          get: () => window.elementSdk?.config?.surface_color || defaultConfig.surface_color,
+          get: () => window.elementSdk.config.surface_color || defaultConfig.surface_color,
           set: (value) => {
-            window.elementSdk?.config?.surface_color = value;
+            window.elementSdk.config.surface_color = value;
             window.elementSdk.setConfig({ surface_color: value });
           }
         },
         {
-          get: () => window.elementSdk?.config?.text_color || defaultConfig.text_color,
+          get: () => window.elementSdk.config.text_color || defaultConfig.text_color,
           set: (value) => {
-            window.elementSdk?.config?.text_color = value;
+            window.elementSdk.config.text_color = value;
             window.elementSdk.setConfig({ text_color: value });
           }
         },
         {
-          get: () => window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color,
+          get: () => window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color,
           set: (value) => {
-            window.elementSdk?.config?.primary_action_color = value;
+            window.elementSdk.config.primary_action_color = value;
             window.elementSdk.setConfig({ primary_action_color: value });
           }
         },
         {
-          get: () => window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color,
+          get: () => window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color,
           set: (value) => {
-            window.elementSdk?.config?.secondary_action_color = value;
+            window.elementSdk.config.secondary_action_color = value;
             window.elementSdk.setConfig({ secondary_action_color: value });
           }
         }
       ],
       borderables: [],
       fontEditable: {
-        get: () => window.elementSdk?.config?.font_family || defaultConfig.font_family,
+        get: () => window.elementSdk.config.font_family || defaultConfig.font_family,
         set: (value) => {
-          window.elementSdk?.config?.font_family = value;
+          window.elementSdk.config.font_family = value;
           window.elementSdk.setConfig({ font_family: value });
         }
       },
       fontSizeable: {
-        get: () => window.elementSdk?.config?.font_size || defaultConfig.font_size,
+        get: () => window.elementSdk.config.font_size || defaultConfig.font_size,
         set: (value) => {
-          window.elementSdk?.config?.font_size = value;
+          window.elementSdk.config.font_size = value;
           window.elementSdk.setConfig({ font_size: value });
         }
       }
@@ -1152,10 +1152,10 @@ html, body {
       modal.style.backdropFilter = 'blur(8px)';
 
       modal.innerHTML = `
-        <div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; color: ${window.elementSdk?.config?.text_color || defaultConfig.text_color};">
-          <div class="sticky top-0 z-10 flex justify-between items-center p-6 border-b" style="background-color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}30;">
+        <div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; color: ${window.elementSdk.config.text_color || defaultConfig.text_color};">
+          <div class="sticky top-0 z-10 flex justify-between items-center p-6 border-b" style="background-color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}30;">
             <h2 class="text-2xl font-bold heading-font">Package Details</h2>
-            <button onclick="closePackageModal()" class="p-2 rounded-full hover:bg-opacity-20 transition-all" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}20;">
+            <button onclick="closePackageModal()" class="p-2 rounded-full hover:bg-opacity-20 transition-all" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}20;">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
               </svg>
@@ -1167,17 +1167,17 @@ html, body {
               <div class="text-7xl mb-4">🌍</div>
               <h3 class="text-3xl font-bold heading-font mb-2">Package Selected: ${packageId}</h3>
               <p class="text-lg opacity-75 mb-6">Detailed itinerary and inclusions will be provided here</p>
-              <div class="inline-block px-6 py-2 rounded-full font-semibold" style="background-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}30; color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color};">
+              <div class="inline-block px-6 py-2 rounded-full font-semibold" style="background-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}30; color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color};">
                 Coming Soon
               </div>
             </div>
             
-            <div class="card-premium p-6 rounded-xl border" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40;">
+            <div class="card-premium p-6 rounded-xl border" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40;">
               <h4 class="text-xl font-bold heading-font mb-4">Itinerary</h4>
               <p class="opacity-75">Day-by-day itinerary details will be displayed here once you provide them.</p>
             </div>
             
-            <div class="card-premium p-6 rounded-xl border" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40;">
+            <div class="card-premium p-6 rounded-xl border" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40;">
               <h4 class="text-xl font-bold heading-font mb-4">Inclusions</h4>
               <ul class="space-y-2">
                 <li class="flex items-center gap-3">
@@ -1187,7 +1187,7 @@ html, body {
               </ul>
             </div>
             
-            <div class="card-premium p-6 rounded-xl border" style="background-color: ${window.elementSdk?.config?.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}40;">
+            <div class="card-premium p-6 rounded-xl border" style="background-color: ${window.elementSdk.config.background_color || defaultConfig.background_color}; border-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}40;">
               <h4 class="text-xl font-bold heading-font mb-4">Exclusions</h4>
               <ul class="space-y-2">
                 <li class="flex items-center gap-3">
@@ -1198,10 +1198,10 @@ html, body {
             </div>
             
             <div class="flex flex-col sm:flex-row gap-4 pt-6">
-              <button onclick="navigateToPage('contact'); closePackageModal();" class="flex-1 btn-premium px-8 py-4 rounded-lg text-lg font-semibold uppercase tracking-wider shadow-xl" style="background-color: ${window.elementSdk?.config?.primary_action_color || defaultConfig.primary_action_color}; color: ${window.elementSdk?.config?.surface_color || defaultConfig.surface_color};">
+              <button onclick="navigateToPage('contact'); closePackageModal();" class="flex-1 btn-premium px-8 py-4 rounded-lg text-lg font-semibold uppercase tracking-wider shadow-xl" style="background-color: ${window.elementSdk.config.primary_action_color || defaultConfig.primary_action_color}; color: ${window.elementSdk.config.surface_color || defaultConfig.surface_color};">
                 Enquire Now
               </button>
-              <button onclick="closePackageModal()" class="flex-1 px-8 py-4 rounded-lg text-lg font-semibold uppercase tracking-wider border-2 transition-all" style="border-color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}; color: ${window.elementSdk?.config?.secondary_action_color || defaultConfig.secondary_action_color}; background: transparent;">
+              <button onclick="closePackageModal()" class="flex-1 px-8 py-4 rounded-lg text-lg font-semibold uppercase tracking-wider border-2 transition-all" style="border-color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}; color: ${window.elementSdk.config.secondary_action_color || defaultConfig.secondary_action_color}; background: transparent;">
                 Close
               </button>
             </div>
@@ -1279,7 +1279,7 @@ async function askAI() {
 }
 
 
-	  
+
 
     function closePackageModal() {
       const modal = document.getElementById('packageModal');
@@ -1327,7 +1327,7 @@ if (footer) content.appendChild(footer);
 }
 
 window.elementSdk = window.elementSdk || { config: {} };
-      
+
 
 document.addEventListener("DOMContentLoaded", function () {
   navigateToPage("home");
@@ -1337,6 +1337,9 @@ document.addEventListener("DOMContentLoaded", function () {
   <!-- YOUR SCRIPT ENDS HERE -->
 
   <!-- Cloudflare security script (KEEP THIS) -->
+  <script>
+    (function(){function c(){var b=a.contentDocument||a.contentWindow.document; /* long code */ })();
+  </script>
  
 <footer id="footer" class="text-center py-6 border-t text-sm opacity-70">
   © 2026 We Fill It AI. All rights reserved.
