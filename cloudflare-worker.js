@@ -18,11 +18,11 @@ export default {
     async function loadFile(path) {
       try {
         const url =
-          `https://raw.githubusercontent.com/Dharmalajayadeep/Dharmalajayadeep.github.io/main/${path}`;
-
+          `https://raw.githubusercontent.com/Dharmalajayadeep/Dharmalajayadeep.github.io/refs/heads/main/We%20Fill%20It%20AI%20knowledge%20base/${path}`;
         const response = await fetch(url);
 
         if (!response.ok) {
+          console.log("Failed:", url);
           return "";
         }
 
