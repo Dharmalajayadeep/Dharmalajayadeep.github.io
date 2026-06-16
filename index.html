@@ -1256,7 +1256,7 @@ async function askAI() {
     const data = await res.json();
 
     // REPLACE thinking instead of adding new message
-    aiDiv.innerHTML = `<b>AI:</b> ${data.reply || "No reply"}`;
+    aiDiv.innerHTML = `<b>AI:</b><br>${(data.reply || "No reply").replace(/\n/g, "<br>")}`;
 
   } catch (err) {
     aiDiv.innerHTML = `<b>AI:</b> Failed to connect AI server`;
