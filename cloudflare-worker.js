@@ -1,18 +1,21 @@
 export default {
   async fetch(request, env) {
 
-    // CORS
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Content-Type": "application/json"
+    };
+
     if (request.method === "OPTIONS") {
       return new Response(null, {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "POST, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type"
-        }
+        headers: corsHeaders
       });
     }
 
     try {
+
       let body = {};
 
       try {
@@ -27,12 +30,14 @@ export default {
         "";
 
       if (!userMessage) {
-        return new Response(JSON.stringify({ reply: "No message received" }), {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
+        return new Response(
+          JSON.stringify({
+            reply: "No message received"
+          }),
+          {
+            headers: corsHeaders
           }
-        });
+        );
       }
 
       const text = userMessage.toLowerCase();
@@ -53,7 +58,6 @@ export default {
       if (text.includes("travel")) context += kb.travel + "\n";
       if (text.includes("company")) context += kb.company + "\n";
 
-      // OPENROUTER CALL (SAFE)
       const aiResponse = await fetch(
         "https://openrouter.ai/api/v1/chat/completions",
         {
@@ -65,11 +69,17 @@ export default {
             "X-Title": "We Fill It AI"
           },
           body: JSON.stringify({
-            model: "meta-llama/llama-3.1-8b-instruct",
+            model: "openai/gpt-4o-mini",
             messages: [
               {
                 role: "system",
-                content: `You are We Fill It AI assistant. Use context:\n${context}`
+                content: `You are We Fill It AI assistant.
+
+Use this context when relevant:
+
+${context}
+
+Be helpful, professional and concise.`
               },
               {
                 role: "user",
@@ -80,22 +90,22 @@ export default {
         }
       );
 
-      // 🔥 IMPORTANT SAFE PARSING
       const textResponse = await aiResponse.text();
 
       let data;
+
       try {
         data = JSON.parse(textResponse);
       } catch (e) {
-        return new Response(JSON.stringify({
-          reply: "AI parsing error",
-          raw: textResponse
-        }), {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
+        return new Response(
+          JSON.stringify({
+            reply: "AI parsing error",
+            raw: textResponse
+          }),
+          {
+            headers: corsHeaders
           }
-        });
+        );
       }
 
       const reply =
@@ -103,23 +113,27 @@ export default {
         data?.error?.message ||
         "No response available";
 
-      return new Response(JSON.stringify({ reply }), {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+      return new Response(
+        JSON.stringify({
+          reply
+        }),
+        {
+          headers: corsHeaders
         }
-      });
+      );
 
     } catch (err) {
-      return new Response(JSON.stringify({
-        reply: "Server error",
-        debug: err?.message
-      }), {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+
+      return new Response(
+        JSON.stringify({
+          reply: "Server error",
+          debug: err?.message || "Unknown error"
+        }),
+        {
+          headers: corsHeaders
         }
-      });
+      );
+
     }
   }
 };
