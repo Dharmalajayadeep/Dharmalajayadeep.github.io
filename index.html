@@ -1258,7 +1258,9 @@ async function askAI() {
 let reply = data.reply || "No response";
 
 // THIS is the important part
-reply = reply.replace(/\n/g, "<br>");
+reply = reply
+  .replace(/\n\s*\n/g, "\n")
+  .replace(/\n/g, "<br>");
 
 aiDiv.innerHTML = `<b>AI:</b><br>${reply}`;
 
