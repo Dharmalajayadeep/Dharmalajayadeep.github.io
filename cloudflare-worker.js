@@ -69,6 +69,14 @@ export default {
 
       // Always load company information
       context += await loadFile("Company/WeFillIt.txt");
+      return new Response(
+  JSON.stringify({
+    contextLoaded: context.substring(0, 500)
+  }),
+  {
+    headers: corsHeaders
+  }
+);
 
       // USA / F1
       if (
