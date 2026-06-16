@@ -1258,29 +1258,24 @@ async function askAI() {
 
     const data = await res.json();
 
-    let reply = data.reply || "No reply";
+   let reply = data?.choices?.[0]?.message?.content || "No response";
 
-    // 3. CLEAN formatting
-    reply = reply
-      .replace(/\r/g, "")
-      .replace(/\n\s*\n/g, "\n")
-      .trim();
+// STEP 1: normalize
+reply = reply
+  .replace(/\r/g, "")
+  .trim();
 
-    reply = reply
-      .split("\n")
-      .filter(line => line.trim() !== "")
-      .join("<br>");
+// STEP 2: remove MULTIPLE blank lines (IMPORTANT)
+reply = reply.replace(/\n\s*\n+/g, "\n");
 
-    // 4. UPDATE SAME BOX (ONLY ONCE)
-    aiDiv.innerHTML = `<b>AI:</b><br>${reply}`;
+// STEP 3: split into lines
+const lines = reply.split("\n");
 
-  } catch (err) {
-    aiDiv.innerHTML = `<b>AI:</b> Failed to connect AI server`;
-  }
+// STEP 4: remove empty lines
+const clean = lines.filter(l => l.trim() !== "");
 
-  messages.scrollTop = messages.scrollHeight;
-}
-
+// STEP 5: render
+aiDiv.innerHTML = `<b>AI:</b><br>` + clean.join("<br>");
 
     function closePackageModal() {
       const modal = document.getElementById('packageModal');
