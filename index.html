@@ -1263,7 +1263,7 @@ reply = reply
   .replace(/\n\s*\n/g, "\n")
   .replace(/\n/g, "<br>");
 
-aiDiv.innerHTML = `<b>AI:</b><br>${reply}`;
+aiDiv.innerHTML = `<b>AI:</b>${reply}`;
 
     // REPLACE thinking instead of adding new message
     aiDiv.innerHTML = `<b>AI:</b><br>${(data.reply || "No reply").replace(/\n/g, "<br>")}`;
