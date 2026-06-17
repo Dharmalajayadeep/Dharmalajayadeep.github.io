@@ -1257,22 +1257,23 @@ async function askAI() {
 
 let reply = data.reply || "No response";
 
-// THIS is the important part
-reply = reply.replace(/\n/g, "<br>");
+// clean response
 reply = reply
-  .replace(/\n\s*\n/g, "\n")
-  .replace(/\n/g, "<br>");
+  .replace(/\r/g, "")
+  .replace(/\n\s*\n+/g, "\n")
+  .trim();
 
-aiDiv.innerHTML = `<b>AI:</b>${reply}`;
+// convert line breaks for HTML
+reply = reply.replace(/\n/g, "<br>");
 
-    // REPLACE thinking instead of adding new message
-    aiDiv.innerHTML = `<b>AI:</b><br>${(data.reply || "No reply").replace(/\n/g, "<br>")}`;
+// show response
+aiDiv.innerHTML = `<b>AI:</b> ${reply}`;
 
-  } catch (err) {
-    aiDiv.innerHTML = `<b>AI:</b> Failed to connect AI server`;
-  }
+} catch (err) {
+  aiDiv.innerHTML = `<b>AI:</b> Failed to connect AI server`;
+}
 
-  messages.scrollTop = messages.scrollHeight;
+messages.scrollTop = messages.scrollHeight;
 }
 
 
