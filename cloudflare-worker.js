@@ -32,7 +32,51 @@ export default {
         return "";
       }
     }
+async function searchWeb(query, env) {
+  try {
+    const response = await fetch("https://api.tavily.com/search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        api_key: env.TAVILY_API_KEY,
+        query: query,
+        search_depth: "advanced",
+        max_results: 5,
+        include_answer: true,
+        include_raw_content: false
+      })
+    });
 
+    if (!response.ok) {
+      console.log("Tavily Error:", await response.text());
+      return "";
+    }
+
+    const data = await response.json();
+
+    let results = "";
+
+    if (data.answer) {
+      results += `Summary:\n${data.answer}\n\n`;
+    }
+
+    if (Array.isArray(data.results)) {
+      for (const item of data.results) {
+        results += `Title: ${item.title}\n`;
+        results += `Content: ${item.content}\n`;
+        results += `Source: ${item.url}\n\n`;
+      }
+    }
+
+    return results;
+
+  } catch (err) {
+    console.log(err);
+    return "";
+  }
+}
     try {
 
       let body = {};
@@ -69,14 +113,7 @@ export default {
 
       // Always load company information
       context += await loadFile("Company/WeFillIt.txt");
-      return new Response(
-  JSON.stringify({
-    contextLoaded: context.substring(0, 500)
-  }),
-  {
-    headers: corsHeaders
-  }
-);
+     
 
       // USA / F1
       if (
