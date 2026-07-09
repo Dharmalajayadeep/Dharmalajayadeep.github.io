@@ -129,7 +129,26 @@ async function searchWeb(query, env) {
         "weather",
         "best time",
         "budget",
-        "package"
+        "package",
+        "fare",
+"price",
+"cost",
+"ticket",
+"tickets",
+"airfare",
+"flight fare",
+"current",
+"latest",
+"available",
+"booking",
+"rate",
+"rates",
+"exchange",
+"currency",
+"near me",
+"restaurants",
+"attractions",
+"events"
       ];
 
       const isTravelRequest = travelKeywords.some(keyword =>
@@ -139,10 +158,13 @@ async function searchWeb(query, env) {
       let webContext = "";
 
       if (
-  isTravelRequest &&
-  !text.includes("visa") &&
-  !text.includes("study") &&
-  !text.includes("education")
+  isTravelRequest ||
+  text.includes("latest") ||
+  text.includes("current") ||
+  text.includes("fee") ||
+  text.includes("fare") ||
+  text.includes("price") ||
+  text.includes("cost")
 ) {
         webContext = await searchWeb(userMessage, env);
       }
