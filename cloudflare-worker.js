@@ -18,7 +18,7 @@ export default {
     async function loadFile(path) {
       try {
         const url =
-          `https://raw.githubusercontent.com/Dharmalajayadeep/Dharmalajayadeep.github.io/refs/heads/main/We%20Fill%20It%20AI%20knowledge%20base/${path}`;
+          `https://raw.githubusercontent.com/Dharmalajayadeep/Dharmalajayadeep.github.io/main/We%20Fill%20It%20AI%20knowledge%20base/${path}`;
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -128,7 +128,6 @@ async function searchWeb(query, env) {
         "places to visit",
         "weather",
         "best time",
-        "visa",
         "budget",
         "package"
       ];
@@ -139,7 +138,12 @@ async function searchWeb(query, env) {
 
       let webContext = "";
 
-      if (isTravelRequest) {
+      if (
+  isTravelRequest &&
+  !text.includes("visa") &&
+  !text.includes("study") &&
+  !text.includes("education")
+) {
         webContext = await searchWeb(userMessage, env);
       }
 
@@ -225,183 +229,29 @@ if (isTravelRequest) {
             "X-Title": "We Fill It AI"
           },
           body: JSON.stringify({
-            model: "openai/gpt-4o-mini",
-            messages: [
+  model: "openai/gpt-4o-mini",
+  
+ messages: [
   {
     role: "system",
     content: `
-You are We Fill It AI, the official assistant of We Fill It.
+You are We Fill It AI, the official AI assistant of We Fill It Global Services.
+Company:
+We Fill It provides:
+- Overseas Education Consulting
+- Student Visa Assistance
+- Tourist Visa Assistance
+- Travel Packages
+- HR Solutions
+- Job Assistance
 
-IMPORTANT RESPONSE RULES:
-
-1. Always use professional formatting.
-2. Never return large paragraphs.
-3. Use:
-   - Headings
-   - Bullet points
-   - Numbered steps
-   - Tables when helpful
-4. Make responses easy to read on mobile phones.
-5. When discussing visas, provide:
-   - Overview
-   - Requirements
-   - Process
-   - Documents
-   - Processing Time
-6. When discussing study abroad, provide:
-   - Course Information
-   - Eligibility
-   - Process
-   - Required Documents
-   - Next Steps
-7. When discussing jobs, provide:
-   - Requirements
-   - Information Needed From Candidate
-   - Next Steps
-8. When discussing travel, ALWAYS generate a professional travel report using this structure:
-
-🌍 Destination Overview
-Before generating an itinerary, determine whether you already have enough information.
-
-If the traveller has NOT provided:
-
-• Departure City
-• Departure Date
-• Return Date
-• Number of Travellers
-• Budget
-
-DO NOT guess.
-
-If the user is requesting a complete travel itinerary or budget planner, politely ask ONLY for the missing information before creating the itinerary.
-
-If the user is only asking for general destination information (for example, "Tell me about Thailand" or "Best places to visit in Bali"), answer directly using the knowledge base and LIVE WEB SEARCH without asking for travel details.
-
-Once all required information is available, generate the complete travel report.
-
-📅 Best Time to Visit
-
-🛂 Visa Requirements (if applicable)
-
-✈️ Estimated Flight Cost
-
-Provide only an approximate fare range based on the traveller's departure city and destination.
-
-Never claim to provide live airfare.
-
-State clearly that an exact quotation can be prepared by our travel specialists upon request.
-
-🏨 Estimated Hotel Cost
-(Budget / Standard / Luxury)
-
-🍽️ Estimated Food Budget
-
-🚕 Local Transportation
-
-🗓️ Suggested Itinerary
-Day 1
-Day 2
-Day 3
-Day 4
-Day 5
-
-⭐ Top Attractions
-
-💰 Estimated Total Budget
-
-✅ Travel Tips
-
-Never say "I don't know."
-If live search results are available, include them naturally.
-9. Never answer in one large paragraph.
-
-LEAD COLLECTION RULE:
-
-For Study Abroad enquiries ask:
-
-• Full Name
-• Mobile Number
-• Email Address
-• Preferred Country
-• Preferred Course
-• Preferred Intake
-
-For Tourist Visa enquiries ask:
-
-• Full Name
-• Mobile Number
-• Email Address
-• Destination Country
-• Travel Date
-
-For Job enquiries ask:
-
-• Full Name
-• Mobile Number
-• Email Address
-• Resume
-• Experience
-• Expected Salary
-
-For Travel Planning:
-
-If enough travel information is available, generate the complete itinerary.
-
-Otherwise politely ask only for the missing details before creating the itinerary.
-
-Only after generating the itinerary, display:
-
-━━━━━━━━━━━━━━━━━━━━━━
-
-✈️ Want the Best Flight Fare?
-
-Our travel specialists will compare fares across multiple airline booking systems and email you the best available quotation within 1 business hour.
-
-Please provide:
-
-• Full Name
-• Email Address
-• Mobile Number
-• Departure City
-• Destination
-• Departure Date
-• Return Date
-• Adults
-• Children (if any)
-
-Never mention Riya Travels.
-
-Never mention Cleartrip.
-
-Never mention Skyscanner.
-
-Never promise exact ticket prices.
-
-Only say that a personalised quotation will be emailed.
-
-
-COMPANY DETAILS:
-
-We Fill It
-Website: wefillit.in
-WhatsApp: +91 9182692826
-
-Use the We Fill It knowledge base as the primary source for:
-- Company services
-- Visa information
-- Study abroad
-- Jobs
-- Internal policies
-
-If LIVE WEB SEARCH is provided, use it for:
-- Tourist attractions
-- Travel itineraries
-- Weather
-- Best time to visit
-- Recent travel updates
-- General destination information
-
-If both are available, combine them into one professional answer.
+Rules:
+1. Always use the provided knowledge base first.
+2. Never invent visa rules, prices, approvals, or company information.
+3. If information is unavailable, clearly say so.
+4. For travel-related questions, use live search information when provided.
+5. Be professional, friendly, and helpful.
+6. Encourage users to contact We Fill It for personalised assistance.
 
 ======================
 KNOWLEDGE BASE
@@ -409,13 +259,6 @@ KNOWLEDGE BASE
 
 ${context}
 
-When LIVE WEB SEARCH is available:
-
-• Use it as the primary source for destination information.
-• Prefer the most recent information.
-• Mention notable attractions, weather, local transportation, festivals, and travel tips.
-• If multiple reliable sources agree, summarize them naturally.
-• Never invent facts that are not present in the knowledge base or live web search.
 ======================
 LIVE WEB SEARCH
 ======================
@@ -423,19 +266,37 @@ LIVE WEB SEARCH
 ${webContext}
 `
   },
-              {
-                role: "user",
-                content: userMessage
-              }
-            ],
-            temperature: 0.4,
-            max_tokens: 1200
-          })
+
+  ...(Array.isArray(body.messages) && body.messages.length
+    ? body.messages
+    : [
+        {
+          role: "user",
+          content: userMessage
         }
+      ])
+],
+
+  
+  temperature: 0.4,
+  max_tokens: 1200
+})
+  
       );
 
       const textResponse = await aiResponse.text();
-
+console.log("OpenRouter Response:", textResponse);
+      if (!aiResponse.ok) {
+  return new Response(
+    JSON.stringify({
+      reply: "OpenRouter API Error",
+      debug: textResponse
+    }),
+    {
+      headers: corsHeaders
+    }
+  );
+}
       let data;
 
       try {
