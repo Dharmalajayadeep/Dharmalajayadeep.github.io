@@ -164,7 +164,11 @@ async function searchWeb(query, env) {
   text.includes("fee") ||
   text.includes("fare") ||
   text.includes("price") ||
-  text.includes("cost")
+  text.includes("cost") ||
+  text.includes("today") ||
+text.includes("tomorrow") ||
+text.includes("this week") ||
+text.includes("now")
 ) {console.log("Tavily Triggered:", userMessage);
         webContext = await searchWeb(userMessage, env);
       }
