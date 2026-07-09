@@ -55,6 +55,7 @@ async function searchWeb(query, env) {
     }
 
     const data = await response.json();
+    console.log("Tavily Response:", JSON.stringify(data));
 
     let results = "";
 
