@@ -165,7 +165,7 @@ async function searchWeb(query, env) {
   text.includes("fare") ||
   text.includes("price") ||
   text.includes("cost")
-) {
+) {console.log("Tavily Triggered:", userMessage);
         webContext = await searchWeb(userMessage, env);
       }
 
